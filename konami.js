@@ -143,7 +143,7 @@ $(document).keyup(function(e) {
     $('.controller-a.controller-fill').css('fill', '');
       break;
     case 13:
-      $('controller-start.controller-fill').css('fill', '');
+      $('.controller-start.controller-fill').css('fill', '');
       break;
     default:
       // No default needed
