@@ -1,49 +1,52 @@
 var correct = 0;
+var done = false;
 var code = ['u', 'u', 'd', 'd', 'l', 'r', 'l', 'r', 'b', 'a', 's'];
 var keyDown = false;
 
 function checkInput(input) {
-  if (correct < code.length) {
+  if (!done) {
     if (code[correct] == input) {
       updateCorrect();
     } else {
       resetCorrect();
     }
-  } else {
-    alert('Already done...');
   }
 };
 function updateCorrect() {
   correct++;
-  $('#' + correct + '-correct').css('color', 'red');
+  $('#correct-' + correct).css('fill', 'red');
   if (correct == code.length) {
-    $('#done').css('color', 'red');
+    done = true;
+    $('.controller-fill').css('fill', 'blue');
+    $('.correct').css('fill', 'blue');
   }
 };
 function resetCorrect() {
   correct = 0;
-  $('.correct').css('color', 'black');
+  $('.correct').css('fill', '');
 }
 
-// Handle start buttons' unusual hover events
-// 1 and 2 should change color, but 3 should always be the same
-$('#controller-start1').hover(function() {
-  $('#controller-start2').css('background-color', 'red');
+// Handle hover for button groups
+$('.controller-a').hover(function() {
+  if (done) return;
+  $('.controller-a.controller-hover').css('fill', 'red');
 }, function() {
-  $('#controller-start2').css('background-color', '');
+  if (done) return;
+  $('.controller-a.controller-hover').css('fill', '');
 });
-$('#controller-start2').hover(function() {
-  $('#controller-start1').css('background-color', 'red');
+$('.controller-b').hover(function() {
+  if (done) return;
+  $('.controller-b.controller-hover').css('fill', 'red');
 }, function() {
-  $('#controller-start1').css('background-color', '');
+  if (done) return;
+  $('.controller-b.controller-hover').css('fill', '');
 });
-$('#controller-start3').hover(function() {
-  $(this).css('background-color', 'black');
-  $('#controller-start1').css('background-color', 'red');
-  $('#controller-start2').css('background-color', 'red');
+$('.controller-start').hover(function() {
+  if (done) return;
+  $('.controller-start.controller-hover').css('fill', 'red');
 }, function() {
-  $('#controller-start1').css('background-color', '');
-  $('#controller-start2').css('background-color', '');
+  if (done) return;
+  $('.controller-start.controller-hover').css('fill', '');
 });
 
 // Button clicks
@@ -71,78 +74,79 @@ $('.controller-start').click(function() {
 
 // Keydown events
 $(document).keydown(function(e) {
-  e.preventDefault;
-  if (keyDown) {
-    return;
-  }
+  if (done) return;
+  if (keyDown) return;
   keyDown = true;
   var key = e.which;
+  e.preventDefault;
 
   switch(key) {
     case 38:
       checkInput('u');
-      $('.controller-up').css('background-color', 'red');
+      $('.controller-up').css('fill', 'red');
       break;
     case 40:
       checkInput('d');
-      $('.controller-down').css('background-color', 'red');
+      $('.controller-down').css('fill', 'red');
       break;
     case 37:
       checkInput('l');
-      $('.controller-left').css('background-color', 'red');
+      $('.controller-left').css('fill', 'red');
       break;
     case 39:
       checkInput('r');
-      $('.controller-right').css('background-color', 'red');
+      $('.controller-right').css('fill', 'red');
       break;
     case 66:
       checkInput('b');
-      $('.controller-b').css('background-color', 'red');
+      $('.controller-b.controller-fill').css('fill', 'red');
       break;
     case 65:
       checkInput('a');
-      $('.controller-a').css('background-color', 'red');
+      $('.controller-a.controller-fill').css('fill', 'red');
       break;
     case 13:
       checkInput('s');
-      $('#controller-start1').css('background-color', 'red');
-      $('#controller-start2').css('background-color', 'red');
+      if (done) return;
+      $('.controller-start.controller-fill').css('fill', 'red');
       break;
     default:
       // No default needed
   }
+  return false;
 });
 
 // Keyup events
 $(document).keyup(function(e) {
-  e.preventDefault;
+  if (done) return;
   keyDown = false;
   var key = e.which;
+  e.preventDefault;
 
   switch(key) {
     case 38:
-    $('.controller-up').css('background-color', '');
+    $('.controller-up').css('fill', '');
       break;
     case 40:
-    $('.controller-down').css('background-color', '');
+    $('.controller-down').css('fill', '');
       break;
     case 37:
-    $('.controller-left').css('background-color', '');
+    $('.controller-left').css('fill', '');
       break;
     case 39:
-    $('.controller-right').css('background-color', '');
+    $('.controller-right').css('fill', '');
       break;
     case 66:
-    $('.controller-b').css('background-color', '');
+    $('.controller-b.controller-fill').css('fill', '');
       break;
     case 65:
-    $('.controller-a').css('background-color', '');
+    $('.controller-a.controller-fill').css('fill', '');
       break;
     case 13:
-      $('#controller-start1').css('background-color', '');
-      $('#controller-start2').css('background-color', '');
+      $('controller-start.controller-fill').css('fill', '');
       break;
     default:
       // No default needed
   }
+  return false;
 });
