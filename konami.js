@@ -17,8 +17,8 @@ function updateCorrect() {
   $('#correct-' + correct).css('fill', 'red');
   if (correct == code.length) {
     done = true;
-    $('.controller-fill').css('fill', 'blue');
-    $('.correct').css('fill', 'blue');
+    $('#konami-instructions').hide();
+    $('#konami-done').show();
   }
 };
 function resetCorrect() {
@@ -125,22 +125,22 @@ $(document).keyup(function(e) {
 
   switch(key) {
     case 38:
-    $('.controller-up').css('fill', '');
+      $('.controller-up').css('fill', '');
       break;
     case 40:
-    $('.controller-down').css('fill', '');
+      $('.controller-down').css('fill', '');
       break;
     case 37:
-    $('.controller-left').css('fill', '');
+      $('.controller-left').css('fill', '');
       break;
     case 39:
-    $('.controller-right').css('fill', '');
+      $('.controller-right').css('fill', '');
       break;
     case 66:
-    $('.controller-b.controller-fill').css('fill', '');
+      $('.controller-b.controller-fill').css('fill', '');
       break;
     case 65:
-    $('.controller-a.controller-fill').css('fill', '');
+      $('.controller-a.controller-fill').css('fill', '');
       break;
     case 13:
       $('.controller-start.controller-fill').css('fill', '');

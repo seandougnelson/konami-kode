@@ -8,8 +8,8 @@
 </head>
 
 <body>
-  <p>
-    <svg xmlns="http://www.w3.org/2000/svg" height="300px" viewBox="0 0 336 156">
+  <article>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 156">
       <path class="controller-border controller-fill" d="M323 118H13V0h310zM23 108h290V10H23z"/>
       <circle class="controller-a controller-transparent" cx="278.5" cy="44.5" r="13.5"/>
       <path class="controller-a controller-fill controller-hover" d="M280.56 45.02h-4.17l2.12-5.49 2.05 5.49z"/>
@@ -37,7 +37,16 @@
       <path id="correct-10" class="correct" d="M288 140h16v16h-16z"/>
       <path id="correct-11" class="correct" d="M320 140h16v16h-16z"/>
     </svg>
-  </p>
+    <p id="konami-instructions">
+      Use mouse or keyboard.
+      <br>
+      (START is ENTER)
+    </p>
+    <p id="konami-done">
+      Cheat code activated!
+    </p>
+  </article>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="konami.js"></script>
 </body>
