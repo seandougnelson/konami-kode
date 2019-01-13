@@ -17,6 +17,7 @@ function updateCorrect() {
   $('#correct-' + correct).css('fill', 'red');
   if (correct == code.length) {
     done = true;
+    $('.controller-start.controller-fill').css('fill', '');
     $('#konami-instructions').hide();
     $('#konami-done').show();
   }
@@ -89,33 +90,32 @@ $(document).keydown(function(e) {
 
   switch(key) {
     case 38:
-      checkInput('u');
       $('.controller-up').css('fill', 'red');
+      checkInput('u');
       break;
     case 40:
-      checkInput('d');
       $('.controller-down').css('fill', 'red');
+      checkInput('d');
       break;
     case 37:
-      checkInput('l');
       $('.controller-left').css('fill', 'red');
+      checkInput('l');
       break;
     case 39:
-      checkInput('r');
       $('.controller-right').css('fill', 'red');
+      checkInput('r');
       break;
     case 66:
-      checkInput('b');
       $('.controller-b.controller-fill').css('fill', 'red');
+      checkInput('b');
       break;
     case 65:
-      checkInput('a');
       $('.controller-a.controller-fill').css('fill', 'red');
+      checkInput('a');
       break;
     case 13:
-      checkInput('s');
-      if (done) return;
       $('.controller-start.controller-fill').css('fill', 'red');
+      checkInput('s');
       break;
     default:
       // No default needed
