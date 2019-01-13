@@ -26,9 +26,6 @@ p {
 .correct {
   fill: gray;
 }
-.controller-hover:hover {
-  fill: red;
-}
 #konami-done {
   display: none;
 }

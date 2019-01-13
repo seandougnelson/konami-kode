@@ -26,7 +26,14 @@ function resetCorrect() {
   $('.correct').css('fill', '');
 }
 
-// Handle hover for button groups
+// Handle hover for controller buttons
+$('.controller-hover').hover(function() {
+  if (done) return;
+  $(this).css('fill', 'red');
+}, function() {
+  if (done) return;
+  $(this).css('fill', '');
+});
 $('.controller-a').hover(function() {
   if (done) return;
   $('.controller-a.controller-hover').css('fill', 'red');
