@@ -26,7 +26,7 @@ function updateCorrect() {
 function resetCorrect() {
   correct = 0;
   $('.correct').css('fill', '');
-}
+};
 
 // Update fill color for controller buttons on hover
 $('.controller-fill.controller-hover').hover(function() {
