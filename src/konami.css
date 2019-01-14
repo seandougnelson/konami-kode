@@ -31,6 +31,9 @@ p {
 .controller-transparent {
   opacity: 0;
 }
+.controller-hover {
+  cursor: pointer;
+}
 .correct {
   fill: gray;
 }

@@ -17,6 +17,7 @@ function updateCorrect() {
   $('#correct-' + correct).css('fill', 'red');
   if (correct == code.length) {
     done = true;
+    $('.controller-hover').css('cursor', 'default');
     $('.controller-start.controller-fill').css('fill', '');
     $('#konami-instructions').hide();
     $('#konami-done').show();
@@ -27,8 +28,8 @@ function resetCorrect() {
   $('.correct').css('fill', '');
 }
 
-// Handle hover for controller buttons
-$('.controller-hover').hover(function() {
+// Update fill color for controller buttons on hover
+$('.controller-fill.controller-hover').hover(function() {
   if (done) return;
   $(this).css('fill', 'red');
 }, function() {
@@ -37,24 +38,24 @@ $('.controller-hover').hover(function() {
 });
 $('.controller-a').hover(function() {
   if (done) return;
-  $('.controller-a.controller-hover').css('fill', 'red');
+  $('.controller-a.controller-fill').css('fill', 'red');
 }, function() {
   if (done) return;
-  $('.controller-a.controller-hover').css('fill', '');
+  $('.controller-a.controller-fill').css('fill', '');
 });
 $('.controller-b').hover(function() {
   if (done) return;
-  $('.controller-b.controller-hover').css('fill', 'red');
+  $('.controller-b.controller-fill').css('fill', 'red');
 }, function() {
   if (done) return;
-  $('.controller-b.controller-hover').css('fill', '');
+  $('.controller-b.controller-fill').css('fill', '');
 });
 $('.controller-start').hover(function() {
   if (done) return;
-  $('.controller-start.controller-hover').css('fill', 'red');
+  $('.controller-start.controller-fill').css('fill', 'red');
 }, function() {
   if (done) return;
-  $('.controller-start.controller-hover').css('fill', '');
+  $('.controller-start.controller-fill').css('fill', '');
 });
 
 // Button clicks
