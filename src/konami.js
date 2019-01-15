@@ -27,6 +27,20 @@ function resetCorrect() {
   correct = 0;
   $('.correct').css('fill', '');
 };
+function resetAll() {
+    // Reset global variables
+    correct = 0;
+    done = false;
+
+    // Reset text
+    $('#konami-instructions').show();
+    $('#konami-done').hide();
+  
+    // Reset controller fills and cursors
+    $('.controller-fill').css('fill', '');
+    $('.correct').css('fill', '');
+    $('.controller-hover').css('cursor', 'pointer');
+}
 
 // Update fill color for controller buttons on hover
 $(document).on({
@@ -169,4 +183,8 @@ $(document).keyup(function(e) {
       // No default needed
   }
   return false;
+});
+
+$('#reset-button').click(function() {
+  resetAll();
 });

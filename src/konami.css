@@ -37,6 +37,22 @@ p {
 .correct {
   fill: gray;
 }
+.button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8em;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: gray;
+}
+.button:hover {
+  cursor: pointer;
+}
 
 #konami-controller-no-border-svg {
   display: none;
