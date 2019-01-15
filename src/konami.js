@@ -14,11 +14,11 @@ function checkInput(input) {
 };
 function updateCorrect() {
   correct++;
-  $('#correct-' + correct).css('fill', 'red');
+  $('.correct-' + correct).css('fill', 'red');
   if (correct == code.length) {
     done = true;
     $('.controller-hover').css('cursor', 'default');
-    $('.controller-start.controller-fill').css('fill', '');
+    $('.controller-fill').not('.controller-border').css('fill', '#ff3b3f');
     $('#konami-instructions').hide();
     $('#konami-done').show();
   }
@@ -29,34 +29,46 @@ function resetCorrect() {
 };
 
 // Update fill color for controller buttons on hover
-$('.controller-fill.controller-hover').hover(function() {
-  if (done) return;
-  $(this).css('fill', 'red');
-}, function() {
-  if (done) return;
-  $(this).css('fill', '');
-});
-$('.controller-a').hover(function() {
-  if (done) return;
-  $('.controller-a.controller-fill').css('fill', 'red');
-}, function() {
-  if (done) return;
-  $('.controller-a.controller-fill').css('fill', '');
-});
-$('.controller-b').hover(function() {
-  if (done) return;
-  $('.controller-b.controller-fill').css('fill', 'red');
-}, function() {
-  if (done) return;
-  $('.controller-b.controller-fill').css('fill', '');
-});
-$('.controller-start').hover(function() {
-  if (done) return;
-  $('.controller-start.controller-fill').css('fill', 'red');
-}, function() {
-  if (done) return;
-  $('.controller-start.controller-fill').css('fill', '');
-});
+$(document).on({
+  mouseenter: function () {
+    if (done) return;
+    $(this).css('fill', 'red');
+  },
+  mouseleave: function () {
+    if (done) return;
+    $(this).css('fill', '');
+  }
+}, '.controller-fill.controller-hover');
+$(document).on({
+  mouseenter: function () {
+    if (done) return;
+    $('.controller-start.controller-fill').css('fill', 'red');
+  },
+  mouseleave: function () {
+    if (done) return;
+    $('.controller-start.controller-fill').css('fill', '');
+  }
+}, '.controller-start-trigger');
+$(document).on({
+  mouseenter: function () {
+    if (done) return;
+    $('.controller-b.controller-fill').css('fill', 'red');
+  },
+  mouseleave: function () {
+    if (done) return;
+    $('.controller-b.controller-fill').css('fill', '');
+  }
+}, '.controller-b-trigger');
+$(document).on({
+  mouseenter: function () {
+    if (done) return;
+    $('.controller-a.controller-fill').css('fill', 'red');
+  },
+  mouseleave: function () {
+    if (done) return;
+    $('.controller-a.controller-fill').css('fill', '');
+  }
+}, '.controller-a-trigger');
 
 // Button clicks
 $('.controller-up').click(function() {

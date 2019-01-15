@@ -14,7 +14,7 @@ p {
   margin-block-start: 1em;
   margin-block-end: 1em;
   text-align: center;
-  color: gray;
+  color: darkslategray;
 }
 
 .no-select {
@@ -37,6 +37,19 @@ p {
 .correct {
   fill: gray;
 }
+
+#konami-controller-no-border-svg {
+  display: none;
+}
 #konami-done {
   display: none;
+}
+
+@media (max-width: 524.98px) {
+  #konami-controller-svg {
+    display: none;
+  }
+  #konami-controller-no-border-svg {
+    display: inline;
+  }
 }
